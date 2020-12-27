@@ -28,7 +28,7 @@
             @enderror
 
         <lable>Email:</lable>
-        <input type="text" name="email" value="{{ old('email') }}" class=" form-control @error('email') is-invalid @enderror"><br>
+        <input type="email" name="email" value="{{ old('email') }}" class=" form-control @error('email') is-invalid @enderror"><br>
             @error('email')
                 <div class="text-danger">{{ $message }}</div>
             @enderror

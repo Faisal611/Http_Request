@@ -39,15 +39,11 @@ Route::group(['middleware'=>'test'] ,function(){
     Route::get('there','StudentController@there');
 });
 
-
-
-
-
 /*
 |-------- Test Middleware End -----------------------|
 */
 
-/*
+/**
 |-------- Register Create -----------------------|
 */
 Route::get('register_create','RegisterController@registerCreate');
@@ -58,3 +54,38 @@ Route::post('users','RegisterController@store');
 */
 Route::get('session_create','SessionController@createUser');
 Route::get('session_show','SessionController@showUser');
+
+
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+/** login*/
+
+Route::get('login','SessionController@login')->name('login');
+Route::post('post','SessionController@postLogin');
+Route::get('log_out','SessionController@logOut');
+
+
+Route::group(['middleware'=>'auth'], function (){
+    Route::get('admin','SessionController@admin');
+    Route::get('dashboard','SessionController@dashboard');
+});
+/** login*/
+/** register*/
+Route::get('register','SessionController@reg');
+Route::post('register','SessionController@allview');
+/**---- register------*/
+
+/**---- image upload------*/
+
+Route::get('file_upload','SessionController@upload');
+Route::post('file_upload','SessionController@store');
+Route::get('files','SessionController@file');
+
+/**---- image upload------*/

@@ -11,10 +11,11 @@ class RegisterController extends Controller
     }
     public function store(UserRequest $request){
 //        $request->validate([
-//            'name'=>'required|string|max',
+//            'name'=>'required|string|',
 //            'email'=>'required|email',
 //            'password'=>'numeric',
 //        ]);
+//       request class ar vitore deoya ase
       return $request->all();
     }
 }
